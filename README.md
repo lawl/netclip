@@ -25,6 +25,16 @@ Below is a sample of such a configuration.
     # receive netclip notifications.
 
     netclip.broadcast=255.255.255.255
+
+    # Share clipboard by default
+    # If set to false the system will not anounce clipboard changes
+    # Or allow others to pull their clipboard via TCP
+    # You can change this setting on the fly from the tray menu
+    # This is just the default setting.
+    # If set to false the system will only listen for clipboard
+    # changes from other systems. But not share theirs.
+
+    netclip.shareclipboard=true
     
     # if you have a crypto crippled JVM, because you are a terrorist,
     # you might get a message like this one:

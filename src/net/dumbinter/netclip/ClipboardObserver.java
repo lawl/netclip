@@ -17,7 +17,7 @@ public class ClipboardObserver implements Runnable{
 		System.out.println("Observer running");
 		while(true){
 			try {
-				if(NetClipboard.getClipboard().isDataFlavorAvailable(DataFlavor.stringFlavor)){
+				if(!NetClipboard.isListenOnly() && NetClipboard.getClipboard().isDataFlavorAvailable(DataFlavor.stringFlavor)){
 					final String clipboardData = (String) NetClipboard.getClipboard().getData(DataFlavor.stringFlavor);
 					if (NetClipboard.getLastData().hashCode() != clipboardData.hashCode()) {
 						NetClipboard.setLastData(clipboardData);

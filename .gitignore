@@ -4,3 +4,4 @@ netclip.jar
 .classpath
 .settings/*
 .project
+config.properties

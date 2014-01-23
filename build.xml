@@ -24,6 +24,7 @@
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="classes"/>
+            <fileset dir="assets"/>
         </jar>
         <echo message="Built netclip.jar" />
     </target>

@@ -21,7 +21,10 @@ public class Main {
 		
 		Integer port = new Integer(Config.get().getProperty("netclip.port"));
 		String broadcast = Config.get().getProperty("netclip.broadcast");
+		String shareClipboard = Config.get().getProperty("netclip.shareclipboard");
 		
+		NetClipboard.setListenOnly(!"true".equals(shareClipboard));
+		TrayMenu.init("true".equals(shareClipboard));
 		
 		
 		System.out.println("Broadcasting changes to: " + broadcast);

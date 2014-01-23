@@ -1,6 +1,7 @@
 netclip.port=6234
 netclip.key=topsecret
 netclip.broadcast=255.255.255.255
+netclip.shareclipboard=true
 
 # if you have a crypto crippled JVM, because you are a terrorist,
 # you might get a message like this one:

@@ -7,6 +7,15 @@ public class NetClipboard {
 	private static byte[] data;
 	private static Clipboard clipboard = null;
 	private static String lastData = "";
+	private static boolean listenOnly = false;
+
+	public static synchronized boolean isListenOnly() {
+		return listenOnly;
+	}
+
+	public static synchronized void setListenOnly(boolean listenOnly) {
+		NetClipboard.listenOnly = listenOnly;
+	}
 
 	public static synchronized String getLastData() {
 		return lastData;

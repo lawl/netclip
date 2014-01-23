@@ -22,7 +22,13 @@ public class TCPServer implements Runnable{
 			try {
 				Socket connectionSocket = welcomeSocket.accept();
 	            DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-	            outToClient.write(Crypto.encrypt(NetClipboard.getData()));
+	            byte[] data;
+	            if(NetClipboard.isListenOnly()){
+	            	data=new String("").getBytes("US-ASCII");
+	            } else {
+	            	data = Crypto.encrypt(NetClipboard.getData());
+	            }
+	            outToClient.write(data);
 	            outToClient.close();
 	            connectionSocket.close();
 			} catch (Exception e) {

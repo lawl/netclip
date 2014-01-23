@@ -1,5 +1,5 @@
 classes/*
-bin/* # fuck you eclipse
+bin/*
 netclip.jar
 .classpath
 .settings/*

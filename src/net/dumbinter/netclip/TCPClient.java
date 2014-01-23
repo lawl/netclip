@@ -22,6 +22,10 @@ public class TCPClient {
 			}
 
 			buffer.flush();
+			
+			is.close();
+			clientSocket.close();
+			
 			byte[] content = Crypto.decrypt(buffer.toByteArray());
 			System.out.println("TCP : " + new String(content));
 			return content;

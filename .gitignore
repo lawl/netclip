@@ -1,0 +1,6 @@
+classes/*
+bin/* # fuck you eclipse
+netclip.jar
+.classpath
+.settings/*
+.project

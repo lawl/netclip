@@ -1,0 +1,19 @@
+netclip.port=6234
+netclip.key=topsecret
+netclip.broadcast=255.255.255.255
+
+# if you have a crypto crippled JVM, because you are a terrorist,
+# you might get a message like this one:
+#
+#    java.security.InvalidKeyException: Illegal key size
+#
+# This means america has decided you're a terrorist and are therefore
+# not allowed to use 256 bit keys. Please turn yourself in at the
+# department of homeland security, the NSA or whatever you think is
+# appropriate. 
+#
+# Or you know, just set this value to 128 if you can live with shitty
+# crypto. Or just uninstall that oracle adware jvm and install
+# openjdk (http://openjdk.java.net/)
+
+netclip.aeskeysize=256

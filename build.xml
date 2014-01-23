@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="all" name="Build runnable jar of netclip">
+    <target name="clean">
+        <delete dir="classes"/>
+        <echo message="Cleaned workspace" />
+    </target>
+
+    <target name="all">
+        <echo message="Building project..." />
+        <antcall target="compile" />
+        <antcall target="jar" />
+    </target>
+
+    <target name="compile">
+        <mkdir dir="classes"/>
+        <javac includeantruntime="false" srcdir="src" destdir="classes"/>
+        <echo message="Compiled classes" />
+    </target>
+
+    <target name="jar">
+        <jar destfile="netclip.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="net.dumbinter.netclip.Main"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="classes"/>
+        </jar>
+        <echo message="Built netclip.jar" />
+    </target>
+</project>

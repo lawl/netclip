@@ -49,7 +49,7 @@ public class TrayMenu implements ItemListener, ActionListener {
 		
 		
 		ClassLoader loader = Thread.currentThread().getContextClassLoader();           
-		InputStream stream = loader.getResourceAsStream("assets/netclip.png");
+		InputStream stream = loader.getResourceAsStream("netclip.png");
 
 		Image trayimg;
 		

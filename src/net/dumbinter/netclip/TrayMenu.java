@@ -25,10 +25,10 @@ public class TrayMenu implements ItemListener, ActionListener {
 			return;
 		}
 		
-        try {
-        	UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        }catch (Exception e) {
-        	System.err.println("Couldn't set system look & feel");
+		try {
+			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+		}catch (Exception e) {
+			System.err.println("Couldn't set system look & feel");
 		}
 		
 		PopupMenu popMenu = new PopupMenu(); 
@@ -56,7 +56,7 @@ public class TrayMenu implements ItemListener, ActionListener {
 		try {
 			trayimg = ImageIO.read(stream);
 			TrayIcon trayIcon = new TrayIcon(trayimg, "netclip", popMenu);
-			trayIcon.setPopupMenu(popMenu);
+			trayIcon.setImageAutoSize(true);
 			SystemTray.getSystemTray().add(trayIcon);
 		} catch (AWTException e) {
 			System.out.println("Couldn't add tray image");

@@ -3,8 +3,9 @@ package net.dumbinter.netclip;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
+import java.lang.IllegalStateException;
 
-public class ClipboardObserver implements Runnable{
+public class ClipboardObserver implements Runnable {
 	
 	
 	UDPServer broadcaster = null;
@@ -29,6 +30,9 @@ public class ClipboardObserver implements Runnable{
 			} catch (UnsupportedFlavorException | IOException e) {
 				System.err.println("Couldn't read clipboard data!");
 				e.printStackTrace();
+			} catch (IllegalStateException e) {
+				// The clipboard is busy at the moment
+				// Ignore it, we'll try again next time
 			} 
 			try {
 				Thread.sleep(100);

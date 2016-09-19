@@ -2,6 +2,7 @@ package net.dumbinter.netclip;
 
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.io.UnsupportedEncodingException;
 
 public class NetClipboard {
 	private static byte[] data;
@@ -40,10 +41,15 @@ public class NetClipboard {
 	public static synchronized void setData(byte[] data) {
 		NetClipboard.data = data;
 	}
-	public static synchronized void update(){
-		String newData = new String(data);
-		StringSelection stringSelection = new StringSelection(newData);
-		clipboard.setContents(stringSelection, null);
-		lastData = newData;
+	public static synchronized void update() {
+		try {
+			String newData = new String(data, "UTF-8");
+			StringSelection stringSelection = new StringSelection(newData);
+			clipboard.setContents(stringSelection, null);
+			lastData = newData;
+		} catch (UnsupportedEncodingException e) {
+			System.err.println("Couldn't update clipboard data!");
+			e.printStackTrace();
+		} 
 	}
 }
